@@ -141,6 +141,124 @@
             </div>
         </section>
 
+        <form action="https://httpbin.org/post" method="post">
+            <fieldset id="make-order-fieldset">
+                <legend id="make-order-legend">Сделать заказ</legend>
+
+                <div id="make-order-grid">
+
+                    <div id="customer-order">
+                        <h3 class="make-order-h3">Ваш заказ</h3>
+
+                        <div class="dropdown-menu">
+                            <label for="dropdown-soup">Суп</label>
+                            <select class="dropdown-menu-class" id="dropdown-soup" name="soup" required>
+                                <option value="">--Выберите суп--</option>
+                                <option value="mushroom-soup">Грибной суп-пюре</option>
+                                <option value="gaspacho">Гаспачо</option>
+                                <option value="norwegian-soup">Норвежский суп</option>
+
+                            </select>
+                        </div>
+
+                        <div class="dropdown-menu">
+                            <label for="dropdown-main-dish">Главное блюдо</label>
+                            <select class="dropdown-menu-class" id="dropdown-main-dish" name="main-dish" required>
+                                <option value="">--Выберите главное блюдо--</option>
+                                <option value="potatoes-with-mushrooms">Жареная картошка с грибами</option>
+                                <option value="lasagna">Лазанья</option>
+                                <option value="chicken-with-potatoes">Котлеты из курицы с картофельным пюре</option>
+
+                            </select>
+                        </div>
+
+                        <div class="dropdown-menu">
+                            <label for="dropdown-drink">Напиток</label>
+                            <select class="dropdown-menu-class" id="dropdown-drink" name="drink" required>
+                                <option value="">--Выберите напиток--</option>
+                                <option value="carrot-juice">Морковный сок</option>
+                                <option value="apple-juice">Яблочный сок</option>
+                                <option value="orange-juice">Апельсиновый сок</option>
+
+                            </select>
+                        </div>
+
+                        <div id="comments">
+                            <label for="comments-textarea">Комментарии к заказу</label>
+                            <textarea id="comments-textarea" name="comments"></textarea>
+                        </div>
+
+
+                    </div>
+
+
+
+                    <div id="customer-data">
+                        <h3 class="make-order-h3">Ваши данные</h3>
+
+
+                        <div class="data-input">
+                            <label for="input-name">Имя</label>
+                            <input type="text" class="input-field" id="input-name" name="user-name" required>
+                        </div>
+
+
+                        <div class="data-input">
+                            <label for="input-email">Email</label>
+                            <input type="email" class="input-field" id="input-email" name="user-email" required>
+                        </div>
+
+
+                        <input type="checkbox" id="newsletter" name="newsletter" value="yes" checked>
+                        <label for="newsletter">Получать информацию <br>о скидках и акциах</label>
+
+
+                        <div class="data-input">
+                            <label for="input-phone">Номер телефона</label>
+                            <input type="text" class="input-field" id="input-phone" name="user-phone" required>
+                        </div>
+
+
+                        <div class="data-input">
+                            <label for="input-address">Адрес доставки</label>
+                            <input type="text" class="input-field" id="input-address" name="user-address" required>
+                            <p class="input-note">Доставка осуществляется только по Москве</p>
+                        </div>
+
+                        <div id="delivery-time">
+                            <p id="delivery-time-main-label">Время доставки:</p>
+
+                            <div class="radio-div">
+                                <input type="radio" id="radio-time-now" name="delivery-when" value="now">
+                                <label for="radio-time-now">Как можно скорее</label>
+                            </div>
+
+                            <div class="radio-div">
+                                <input type="radio" id="radio-time-later" name="delivery-when" value="later">
+                                <label for="radio-time-later">К указанному времени</label>
+                            </div>
+                        </div>
+
+
+                        <div class="data-input">
+                            <label for="input-time">Укажите время доставки</label>
+                            <input type="time" class="input-field" id="input-time" name="delivery-exact-time"
+                                min="07:00" max="23:00" step="300" required>
+                            <p class="input-note">Доступное время с 7:00 до 23:00</p>
+                        </div>
+
+                        <div class="buttons">
+                            <button class="form-btn" type="reset" id="reset-btn">Сбросить</button>
+                            <input class="form-btn" type="submit" value="Отправить">
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+
+
+
+
     </main>
 
     <footer id="contacts">

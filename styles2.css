@@ -211,3 +211,146 @@ footer p {
         row-gap: 10px;
     }
 }
+
+
+
+/*
+3 лаба
+*/
+#make-order-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: 0 160px;
+    width: 680px;
+    margin: auto;
+    justify-items: center;
+}
+
+#make-order-fieldset {
+    margin-top: 50px;
+    border: none;
+}
+
+#make-order-legend {
+    font-size: 180%;
+    text-align: center;
+    font-weight: bold;
+}
+
+.make-order-h3 {
+    font-weight: 100;
+}
+
+.dropdown-menu {
+    display: flex;
+    flex-direction: column;
+    row-gap: 5px;
+    margin: 20px 0;
+    font-size: 107%;
+}
+
+.dropdown-menu-class {
+    width: 290px;
+    height: 35px;
+    border-color: transparent;
+    border-radius: 10px;
+    background-color: rgb(237, 224, 209);
+    transition: color 0.25s, background-color 0.25s;
+}
+
+.dropdown-menu-class:focus {
+    outline: none;
+}
+
+.dropdown-menu-class:hover {
+    color: white;
+    background-color: darksalmon;
+}
+
+.dropdown-menu label {
+    pointer-events: none;
+}
+
+#comments {
+    display: flex;
+    flex-direction: column;
+    row-gap: 5px;
+    margin: 20px 0;
+    font-size: 107%;
+}
+
+#comments-textarea {
+    min-width: 280px;
+    max-width: 280px;
+    height: 110px;
+    border-color: transparent;
+    border-radius: 10px;
+    background-color: rgb(237, 224, 209);
+    padding: 0 5px;
+
+}
+
+#comments-textarea:focus {
+    outline: none;
+    border: 1px solid darksalmon;
+}
+
+label {
+    max-width: 290px;
+}
+
+
+/* user data */
+
+
+.data-input {
+    display: flex;
+    flex-direction: column;
+    row-gap: 5px;
+    margin: 20px 0;
+    font-size: 107%;
+}
+
+.input-field {
+    padding: 0 5px;
+    width: 280px;
+    height: 35px;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    background-color: rgb(237, 224, 209);
+}
+
+.input-field:focus {
+    outline: none;
+    border-color: darksalmon;
+}
+
+.input-note {
+    margin: 0;
+    font-size: 75%;
+    font-style: italic;
+}
+
+#delivery-time {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#delivery-time-main-label {
+    margin: 0;
+}
+
+.form-btn {
+    width: 143px;
+    background-color: rgb(237, 224, 209);
+    padding: 10px 0;
+    border: none;
+    border-radius: 10px;
+    transition: color 0.25s, background-color 0.25s;
+}
+
+.form-btn:hover {
+    color: white;
+    background-color: darksalmon;
+}
