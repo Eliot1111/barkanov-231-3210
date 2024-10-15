@@ -109,6 +109,10 @@ footer p {
     margin-bottom: 40px;
 }
 
+fieldset {
+    border: none;
+}
+
 .menu-item {
     display: flex;
     flex-flow: column wrap;
