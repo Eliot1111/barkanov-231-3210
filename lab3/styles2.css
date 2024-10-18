@@ -1,0 +1,374 @@
+@font-face {
+    font-family: 'Roboto', sans-serif;
+    src: local('Roboto'),
+        url(/Roboto/Roboto-Italic.ttf) format('truetype');
+}
+
+* {
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+}
+
+
+header {
+    background-image: url('background.jpg');
+    background-size: 1728px, 213px;
+    color: white;
+    padding: 20px 0;
+    font-size: xx-large;
+    font-weight: bold;
+}
+
+html,
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+}
+
+
+.main-menu ul {
+    margin: 0;
+    list-style: none;
+    padding: 0;
+}
+
+.main-menu li {
+    display: inline;
+    margin-right: 10px;
+}
+
+.main-menu a {
+    color: white;
+    text-decoration: none;
+    font-family: 'Roboto', sans-serif;
+}
+
+.main-menu a:hover {
+    color: blue;
+}
+
+
+.container {
+    max-width: 75%;
+    margin: 0 auto;
+    margin-top: 50px;
+    padding: 0 20px;
+}
+
+html {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+
+}
+
+
+footer {
+    background-color: black;
+    color: white;
+    font-size: x-large;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-top: auto;
+}
+
+footer p {
+    margin-left: 30px;
+}
+
+.flex-box {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.flex-box a {
+    text-decoration: none;
+    color: black;
+    font-size: x-large;
+    margin: 20px 50px;
+}
+
+.flex-box a:hover {
+    text-decoration: none;
+    color: orange;
+}
+
+#active-button {
+    color: orange;
+}
+
+.menu-category-text {
+    margin-left: 50px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+fieldset {
+    border: none;
+}
+
+.menu-item {
+    display: flex;
+    flex-flow: column wrap;
+    width: 300px;
+    max-height: 550px;
+    border: 2px solid transparent;
+    border-radius: 35px;
+    align-content: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.menu-item:hover {
+    border: 2px solid blueviolet;
+}
+
+.menu-item:hover button {
+    background-color: rgb(0, 102, 255);
+}
+
+.dish-img img {
+    margin-top: 20px;
+    border-radius: 35px;
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+}
+
+.menu-item-container {
+    margin: auto;
+    max-width: 980px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-items: center;
+    column-gap: 10px;
+}
+
+.dish-name {
+    flex: 1;
+    max-width: 250px;
+    font-size: 100%;
+}
+
+.price {
+    font-size: 100%;
+}
+
+.dish-mass {
+    margin-top: 10px;
+    font-size: 80%;
+    color: gray;
+}
+
+.btn {
+    font-size: 100%;
+    text-align: center;
+    margin-top: 5px;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 0;
+    background-color: #f1eee9;
+    text-decoration: none;
+    transition: color 0.25s, background-color 0.25s;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+
+.btn:hover {
+    color: white;
+    background-color: goldenrod;
+}
+
+@media only screen and (max-width: 1200px) {
+    nav h1 {
+        text-align: 20px;
+    }
+
+    .flex-box {
+        margin: 0;
+        align-content: space-between;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .menu-item-container {
+        grid-template-columns: 1fr 1fr;
+        row-gap: 10px;
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    nav h1 {
+        text-align: center;
+    }
+
+    .flex-box {
+        flex-direction: column;
+        align-items: center;
+        align-content: center;
+        gap: 20px;
+    }
+
+    .menu-category-text {
+        text-align: center;
+        margin: 30px 0;
+    }
+
+    .menu-item-container {
+        margin: auto;
+        max-width: 980px;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+        justify-items: center;
+        row-gap: 10px;
+    }
+}
+
+
+
+/*
+3 лаба
+*/
+#make-order-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: 0 160px;
+    width: 680px;
+    margin: auto;
+    justify-items: center;
+}
+
+#make-order-fieldset {
+    margin-top: 50px;
+    border: none;
+}
+
+#make-order-legend {
+    font-size: 180%;
+    text-align: center;
+    font-weight: bold;
+}
+
+.make-order-h3 {
+    font-weight: 100;
+}
+
+.dropdown-menu {
+    display: flex;
+    flex-direction: column;
+    row-gap: 5px;
+    margin: 20px 0;
+    font-size: 107%;
+}
+
+.dropdown-menu-class {
+    width: 290px;
+    height: 35px;
+    border-color: transparent;
+    border-radius: 10px;
+    background-color: rgb(237, 224, 209);
+    transition: color 0.25s, background-color 0.25s;
+}
+
+.dropdown-menu-class:focus {
+    outline: none;
+}
+
+.dropdown-menu-class:hover {
+    color: white;
+    background-color: darksalmon;
+}
+
+.dropdown-menu label {
+    pointer-events: none;
+}
+
+#comments {
+    display: flex;
+    flex-direction: column;
+    row-gap: 5px;
+    margin: 20px 0;
+    font-size: 107%;
+}
+
+#comments-textarea {
+    min-width: 280px;
+    max-width: 280px;
+    height: 110px;
+    border-color: transparent;
+    border-radius: 10px;
+    background-color: rgb(237, 224, 209);
+    padding: 0 5px;
+
+}
+
+#comments-textarea:focus {
+    outline: none;
+    border: 1px solid darksalmon;
+}
+
+label {
+    max-width: 290px;
+}
+
+
+/* user data */
+
+
+.data-input {
+    display: flex;
+    flex-direction: column;
+    row-gap: 5px;
+    margin: 20px 0;
+    font-size: 107%;
+}
+
+.input-field {
+    padding: 0 5px;
+    width: 280px;
+    height: 35px;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    background-color: rgb(237, 224, 209);
+}
+
+.input-field:focus {
+    outline: none;
+    border-color: darksalmon;
+}
+
+.input-note {
+    margin: 0;
+    font-size: 75%;
+    font-style: italic;
+}
+
+#delivery-time {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#delivery-time-main-label {
+    margin: 0;
+}
+
+.form-btn {
+    width: 143px;
+    background-color: rgb(237, 224, 209);
+    padding: 10px 0;
+    border: none;
+    border-radius: 10px;
+    transition: color 0.25s, background-color 0.25s;
+}
+
+.form-btn:hover {
+    color: white;
+    background-color: darksalmon;
+}
