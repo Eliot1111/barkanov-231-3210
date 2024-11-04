@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orders</title>
+    <link rel="stylesheet" href="orders.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inknut+Antiqua:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+</head>
+
+
+<body>
+    <header>
+            <nav class="navbar">
+                <h1 id="company-name">Food Construct</h1>
+                <div id="flex_box">
+                    <div class="box_item"><a class="btn" href="index.html">О нас</a></div>
+                    <div class="box_item"><a class="btn" id="active-btn" href="#">Собрать ланч</a></div>
+                    <div class="box_item"><a class="btn" href="#">Заказы</a></div>
+                    <div class="box_item"><a class="btn" href="#footer_id">Контакты</a></div>
+                </div>
+            </nav>
+    </header>
+    
+    <main>
+
+        <section class="soup">
+            <h2 class="menu-category">Выберите суп</h2>
+            <div class="filter" id="soup-filter">
+                <p class="filter-p" id="fish-soup-filter" data-kind="fish">Рыбный</p>
+                <p class="filter-p" id="meat-soup-filter" data-kind="meat">Мясной</p>
+                <p class="filter-p" id="veg-soup-filter" data-kind="veg">Вегетарянский</p>
+            </div>
+            <div class="menu-item-container" id="soup-container"></div>
+        </section>
+
+        <section class="main-dish">
+            <h2 class="menu-category">Выберите главное блюдо</h2>
+            <div class="filter" id="main-dish-filter">
+                <p class="filter-p" id="fish-main-dish-filter" data-kind="fish">Рыбное</p>
+                <p class="filter-p" id="meat-main-dish-filter" data-kind="meat">Мясное</p>
+                <p class="filter-p" id="veg-main-dish-filter" data-kind="veg">Вегетарянское</p>
+            </div>
+            <div class="menu-item-container" id="main-dish-container"></div>
+        </section>
+        
+        <section class="salad-starter">
+            <h2 class="menu-category">Выберите салат или стартер</h2>
+            <div class="filter" id="salad-starter-filter">
+                <p class="filter-p" id="fish-salad-starter-filter" data-kind="fish">Рыбный</p>
+                <p class="filter-p" id="meat-salad-starter-filter" data-kind="meat">Мясной</p>
+                <p class="filter-p" id="veg-salad-starter-filter" data-kind="veg">Вегетарянский</p>
+            </div>
+            <div class="menu-item-container" id="salad-starter-container"></div>
+        </section>
+
+        <section class="drink">
+            <h2 class="menu-category">Выберите напиток</h2>
+            <div class="filter" id="drink-filter">
+                <p class="filter-p" id="cold-drink-filter" data-kind="cold">Холодный</p>
+                <p class="filter-p" id="hot-drink-filter" data-kind="hot">Горячий</p>
+            </div>
+            <div class="menu-item-container" id="drink-container"></div>
+        </section>
+
+        <section class="dessert">
+            <h2 class="menu-category">Выберите десерт</h2>
+            <div class="filter" id="dessert-filter">
+                <p class="filter-p" id="small-dessert-filter" data-kind="small">Маленкая порция</p>
+                <p class="filter-p" id="medium-dessert-filter" data-kind="medium">Средняя порция</p>
+                <p class="filter-p" id="large-dessert-filter" data-kind="large">Большая порция</p>
+            </div>
+            <div class="menu-item-container" id="dessert-container"></div>
+        </section>
+
+
+
+        <form action="https://httpbin.org/post" method="post">
+            <fieldset id="make-order-fieldset">
+                <legend id="make-order-legend">Сделать заказ</legend>
+
+                <div id="make-order-grid">
+
+                    <div id="customer-order">
+                        <h3 class="make-order-h3">Ваш заказ</h3>
+
+                        <div class="hidden selected-food" id="selected-soup">Суп</div>
+                        <div class="hidden selected-food-text" id="selected-soup-text">Суп не выбран</div>
+                        <input type="hidden" id="selected-soup-keyword" name="soup" value="" required> <!-- Hidden input for the selected dish -->
+                        
+                        <div id="none-selected">Ничего не выбрано</div>
+
+                        <div class="hidden selected-food" id="selected-dish">Главное блюдо</div>
+                        <div class="hidden selected-food-text" id="selected-dish-text">Блюдо не выбрано</div>
+                        <input type="hidden" id="selected-dish-keyword" name="main-dish" value="" required> <!-- Hidden input for the selected dish -->
+
+                        <div class="hidden selected-food" id="selected-salad-starter">Салат или стартер</div>
+                        <div class="hidden selected-food-text" id="selected-salad-starter-text">Ничего не выбрано</div>
+                        <input type="hidden" id="selected-salad-starter-keyword" name="salad-starter" value="" required> <!-- Hidden input for the selected dish -->
+
+                        <div class="hidden selected-food" id="selected-drink">Напиток</div>
+                        <div class="hidden selected-food-text" id="selected-drink-text">Напиток не выбран</div>
+                        <input type="hidden" id="selected-drink-keyword" name="drink" value="" required> <!-- Hidden input for the selected dish -->
+
+                        <div class="hidden selected-food" id="selected-dessert">Десерт</div>
+                        <div class="hidden selected-food-text" id="selected-dessert-text">Десерт не выбран</div>
+                        <input type="hidden" id="selected-dessert-keyword" name="dessert" value="" required> <!-- Hidden input for the selected dish -->
+
+                        <div class="hidden selected-food" id="final-price">Стоимость заказа</div>
+                        <div class="hidden" id="final-price-value"></div>
+
+                        <div id="comments">
+                            <label for="comments-textarea">Комментарии к заказу</label>
+                            <textarea id="comments-textarea" name="comments"></textarea>
+                        </div>
+
+
+                    </div>
+
+
+
+                    <div id="customer-data">
+                        <h3 class="make-order-h3">Ваши данные</h3>
+
+
+                        <div class="data-input">
+                            <label for="input-name">Имя</label>
+                            <input type="text" class="input-field" id="input-name" name="user-name" required>
+                        </div>
+
+
+                        <div class="data-input">
+                            <label for="input-email">Email</label>
+                            <input type="email" class="input-field" id="input-email" name="user-email" required>
+                        </div>
+
+
+                        <input type="checkbox" id="newsletter" name="newsletter" value="yes" checked>
+                        <label for="newsletter">Получать информацию <br>о скидках и  акциах</label>
+
+
+                        <div class="data-input">
+                            <label for="input-phone">Номер телефона</label>
+                            <input type="text" class="input-field" id="input-phone" name="user-phone" required>
+                        </div>
+
+
+                        <div class="data-input">
+                            <label for="input-address">Адрес доставки</label>
+                            <input type="text" class="input-field" id="input-address" name="user-address" required>
+                            <p class="input-note">Доставка осуществляется только по Москве</p>
+                        </div>
+
+
+
+
+                        <div id="delivery-time">
+                            <p id="delivery-time-main-label">Время доставки:</p>
+
+                            <div class="radio-div">
+                                <input type="radio" id="radio-time-now" name="delivery-when" value="now">
+                                <label for="radio-time-now">Как можно скорее</label>
+                            </div>
+
+                            <div class="radio-div">
+                                <input type="radio" id="radio-time-later" name="delivery-when" value="later">
+                                <label for="radio-time-later">К указанному времени</label>
+                            </div>
+                        </div>
+
+
+                        <div class="data-input">
+                            <label for="input-time">Укажите время доставки</label>
+                            <input type="time" class="input-field" id="input-time" name="delivery-exact-time" min="07:00" max="23:00" step="300">
+                            <p class="input-note">Доступное время с 7:00 до 23:00</p>
+                        </div>
+
+                        <div class="buttons">
+                            <button class="form-btn" type="reset" id="reset-btn">Сбросить</button>
+                            <input class="form-btn" type="submit" value="Отправить">
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+
+
+
+
+
+
+
+
+
+
+
+    </main>
+
+
+
+    <footer id="footer_id">
+        <div>
+            <p id="footer_p">Позвонить нам <a href="#" class="contact">+7 (000)-000-00-00</a></p>
+
+        </div>
+
+
+    </footer>
+
+<script type="module" src="assets.js"></script>
+<script type="module" src="fetchDishes.js"></script>
+
+</body>
+</html>

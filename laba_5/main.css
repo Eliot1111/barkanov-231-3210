@@ -1,0 +1,242 @@
+html, body{
+    background-color: antiquewhite;
+    margin: 0px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    font-family: Helvetica;
+}
+
+
+/* css for navbar */
+
+header {
+    background-color:rgb(237, 224, 209);
+    padding: 0px 0px;
+    margin: 0px 0px;
+}
+
+.navbar{
+    display: flex;
+    flex-flow: row wrap;
+}
+
+#flex_box{
+    display: inline-flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    align-items: center;
+    margin-left: 10px;
+}
+
+.box_item{
+    font-size: 150%;
+}
+
+#company-name{
+    display: inline;
+    font-size: 190%;
+    margin-left: 50px;
+}
+
+
+.btn{
+    padding: 35px 60px 29px 60px;
+    color:black;
+    text-decoration: none;
+    transition: color 0.25s, background-color 0.25s;
+}
+
+#active-btn{
+    color:white;
+    background-color: darksalmon;
+}
+
+.btn:hover{
+
+    color:white;
+    background-color: darksalmon;
+}
+
+
+/* css for picture */
+
+#picture{
+    margin: 75px 0;
+    text-align: center;
+    height: 500px;
+}
+
+#picture > img{
+    height: 100%;
+}
+
+
+/* css for about us section */
+
+#about_us{
+    margin: 0px 50px;
+}
+
+#about_us_h2{
+    font-size: 200%;
+}
+
+#about_us_p{
+    font-size: 120%;
+}
+
+
+/* css our pros section */
+
+#our_pros{
+    margin: 75px 50px;
+}
+
+#our_pros_h2{
+    font-size: 170%;
+}
+
+#our_pros_ul{
+    margin-left: -40px;
+}
+
+.our_pros_li{
+    font-size: 120%;
+}  
+
+
+/* css for table */
+
+#top5_h2{
+    margin: 0 40px 50px 40px;
+    font-size: 170%;
+}
+
+table{
+    border-collapse: collapse;
+    margin: 0px 40px;
+    margin-bottom: 25px;
+    font-size: 20px;
+    text-align: center;
+    
+}
+
+th{
+    padding: 20px 5px;
+    border: 1px solid black;
+    background-color:rgb(237, 224, 209);
+}
+
+td{
+    padding: 5px;
+    border: 1px solid black;
+}
+
+
+
+
+
+
+
+
+/* css for footer */
+
+#footer_id{
+    background-color:rgb(237, 224, 209);
+    padding:    25px 0px;
+    margin: 0px 0px;
+    margin-top: auto;
+}
+
+#footer_p{
+    font-size: 120%;
+    margin: 0px 40px;
+}
+
+#footer_p a{
+    color:black;
+    text-decoration: none;
+}
+
+
+
+/* media for screens <1200px */
+
+@media only screen and (max-width: 1200px){
+
+    .navbar{
+        flex-direction: column;
+        gap: 30px;
+        margin-bottom: 32px;
+        
+    }
+    
+    #company-name{
+        margin: 30px auto ;
+    }
+
+    .btn{
+        padding: 35px 60px 32px 60px;
+    }
+    
+    #flex_box{
+        margin: 0;
+        justify-content: space-between;
+    }
+}
+
+
+@media only screen and (max-width: 1000px){
+
+    #flex_box{
+        flex-direction: column;
+        align-items: normal;
+    }          
+
+    .btn{
+        display: block;
+        text-align: center;
+    }
+}
+
+@media only screen and (max-width: 800px){
+
+    table{
+        font-size: 18px;
+    }
+
+    #picture{
+        margin: 75px 0;
+        text-align: center;
+        margin: 75px auto;
+        height: auto;
+        width: 500px;
+    }
+    
+    #picture > img{
+
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 600px){
+
+    table{
+        font-size: 16px;
+    }
+
+    #picture{
+        margin: 75px 0;
+        text-align: center;
+        margin: 75px auto;
+        height: auto;
+        width: 100%;
+    }
+    
+    #picture > img{
+
+        width: 100%;
+    }
+}
