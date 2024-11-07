@@ -1,172 +1,117 @@
-let totalSum = 0;
+const totalAmount = 0;
 
-let currentSelections = {
+const selectedItems = {
     soup: null,
     mainDish: null,
     drink: null
 };
 
-function Dish(keyword, name, price, category, count, image) {
-    this.keyword = keyword,
-    this.name = name,
-    this.price = price,
-    this.category = category,
-    this.count = count,
-    this.image = image;
+function MenuItem(dishName, cost, type, weight, key, imgSrc) {
+    this.key = key;
+    this.name = dishName;
+    this.price = cost;
+    this.category = type;
+    this.weight = weight;
+    this.image = imgSrc;
 }
 
-let dishes = [
-    new Dish("gazpacho", "Гаспачо", 195, "soups", "350 г",
-        "images/gazpacho.jpg"),
-    new Dish("mushroom_soup", "Грибной суп", 185, "soups", "330 г",
-        "images/mushroom_soup.jpg"),
-    new Dish("norwegian_soup", "Норвежский суп", 270, "soups", "330 г", 
-        "images/norwegian_soup.jpg"),
-        
-    new Dish("friedpotatoeswithmushrooms", "Жареная картошка с грибами", 150, 
-        "main-dishes", "250 г", 
-        "images/friedpotatoeswithmushrooms1.jpg"),
-    new Dish("lasagna", "Лазанья", 385, "main-dishes", "310 г", 
-        "images/lasagna.jpg"),
-    new Dish("chickencutletsandmashedpotatoes", 
-        "Котлеты из курицы с картофельным пюре", 225, "main-dishes", "280 г", 
-        "images/chickencutletsandmashedpotatoes.jpg"),
-
-    new Dish("orangejuice", "Апельсиновый сок", 120, "drinks", "300 мл", 
-        "images/orangejuice.jpg"),
-    new Dish("applejuice", "Яблочный сок", 90, "drinks", "300 мл", 
-        "images/applejuice.jpg"),
-    new Dish("carrotjuice", "Морковный сок", 110, "drinks", "300 мл", 
-        "images/carrotjuice.jpg")
+const menuItems = [
+    new MenuItem("Гаспачо", 195, "soups", "350 г", "gazpacho", "images/gazpacho.jpg"),
+    new MenuItem("Грибной суп", 185, "soups", "330 г", "mushroom_soup", "images/mushroom_soup.jpg"),
+    new MenuItem("Норвежский суп", 270, "soups", "330 г", "norwegian_soup", "images/norwegian_soup.jpg"),
+    new MenuItem("Жареная картошка с грибами", 150, "main-dishes", "250 г", "friedpotatoeswithmushrooms", "images/friedpotatoeswithmushrooms1.jpg"),
+    new MenuItem("Лазанья", 385, "main-dishes", "310 г", "lasagna", "images/lasagna.jpg"),
+    new MenuItem("Котлеты из курицы с картофельным пюре", 225, "main-dishes", "280 г", "chickencutletsandmashedpotatoes", "images/chickencutletsandmashedpotatoes.jpg"),
+    new MenuItem("Апельсиновый сок", 120, "drinks", "300 мл", "orangejuice", "images/orangejuice.jpg"),
+    new MenuItem("Яблочный сок", 90, "drinks", "300 мл", "applejuice", "images/applejuice.jpg"),
+    new MenuItem("Морковный сок", 110, "drinks", "300 мл", "carrotjuice", "images/carrotjuice.jpg")
 ];
 
-    
-dishes.sort((a, b) => {
-    if (a.category === b.category) {
-        return a.name.localeCompare(b.name);
-    }
-    return a.category.localeCompare(b.category);
-});
-
-function showDishes() {
-    let formSection = document.body.querySelector(".order");
-    let allChooseClassElems = formSection.getElementsByClassName('choose');
-    for (let elem of allChooseClassElems) {
+const displayMenuItems = () => {
+    document.querySelectorAll(".choose").forEach(elem => {
         elem.style.display = "block";
-    }
-}
+    });
+};
 
-function hideNothingChoosenText() {
-    let formSection = document.body.querySelector(".order");
+const hideEmptySelectionMessage = () => {
+    document.querySelector(".order .nothing-chosen").style.display = "none";
+};
 
-    formSection.getElementsByClassName('nothing-choosen')[0]
-        .style.display = "none";
-}
-
-function higlightCard(category, event) {
-    let categoryElement = document.querySelector(`.${category}`);
-    let previouslySelected = categoryElement.querySelector(".selected");
-    if (previouslySelected) {
-        previouslySelected.classList.remove("selected");
-    }
-
+const highlightSelectedCard = (type, event) => {
+    const previous = document.querySelector(`.${type} .selected`);
+    if (previous) previous.classList.remove("selected");
     event.currentTarget.parentNode.classList.add("selected");
-}
+};
 
-function showNewSumm() {
-    let formSection = document.body.querySelector(".order");
-    let sumElement = formSection.querySelector("#total-sum");
+const updateTotalAmount = () => {
+    document.querySelector("#total-amount").textContent = `${totalAmount}₽`;
+};
 
-    sumElement.textContent = totalSum + "₽";
-}
+const addItemToOrder = (event) => {
+    const selectedKey = event.currentTarget.parentNode.getAttribute("data-dish");
+    const formSection = document.querySelector(".order");
+    displayMenuItems();
+    hideEmptySelectionMessage();
 
-function addDishToForm(event) {
-    let actionTarget = event.currentTarget.parentNode.getAttribute("data-dish");
-    let formSection = document.querySelector(".order");
-    showDishes();
-    hideNothingChoosenText();
-    
-    for (let dish of dishes) {
-        if (dish.keyword != actionTarget) continue;
+    menuItems.forEach(item => {
+        if (item.key !== selectedKey) return;
 
-        let textSelector = formSection.querySelector(
-            "#" + dish.category + "-choose");
-        let dishName = dish.name;
-        let dishPrice = dish.price;
+        const textSelector = formSection.querySelector(`#${item.category}-choose`);
+        textSelector.textContent = `${item.name} ${item.price}₽`;
 
-        textSelector.textContent = dish.name + " " + dish.price + "₽";
+        highlightSelectedCard(item.category, event);
 
-        higlightCard(dish.category, event);
-
-        if (dish.category === "soups") {
-            if (currentSelections.soup) {
-                totalSum -= currentSelections.soup.price;
-            }
-            currentSelections.soup = dish;
-            formSection.querySelector("#soup-input").value = dish.keyword;
-
-        } else if (dish.category === "main-dishes") {
-            if (currentSelections.mainDish) {
-                totalSum -= currentSelections.mainDish.price;
-            }
-            currentSelections.mainDish = dish;
-            formSection.querySelector("#main-dish-input").value = dish.keyword;
-
-        } else if (dish.category === "drinks") {
-            if (currentSelections.drink) {
-                totalSum -= currentSelections.drink.price;
-            }
-            currentSelections.drink = dish;
-            formSection.querySelector("#drink-input").value = dish.keyword;
+        if (item.category === "soups") {
+            if (selectedItems.soup) totalAmount -= selectedItems.soup.price;
+            selectedItems.soup = item;
+            formSection.querySelector("#soup-input").value = item.key;
+        } else if (item.category === "main-dishes") {
+            if (selectedItems.mainDish) totalAmount -= selectedItems.mainDish.price;
+            selectedItems.mainDish = item;
+            formSection.querySelector("#main-dish-input").value = item.key;
+        } else if (item.category === "drinks") {
+            if (selectedItems.drink) totalAmount -= selectedItems.drink.price;
+            selectedItems.drink = item;
+            formSection.querySelector("#drink-input").value = item.key;
         }
 
-        totalSum += dish.price;
-        showNewSumm();
-    }
+        totalAmount += item.price;
+        updateTotalAmount();
+    });
+};
 
-}    
+menuItems.forEach(item => {
+    const itemCard = document.createElement('div');
+    itemCard.classList.add("menu-item");
+    itemCard.setAttribute("data-dish", item.key);
 
-for (let dish of dishes) {
-    let dishCard = document.createElement('div');
-    dishCard.className = "menu-item";
-    dishCard.setAttribute("data-dish", dish.keyword);
+    const imgDiv = document.createElement("div");
+    imgDiv.classList.add("dish-img");
 
-    let dishImgDiv = document.createElement("div");
-    dishImgDiv.className = "dish-img";
+    const img = document.createElement("img");
+    img.src = item.image;
 
-    let dishImg = document.createElement("img");
-    dishImg.src = dish.image;
+    const nameElem = document.createElement("p");
+    nameElem.textContent = item.name;
+    nameElem.classList.add("dish-name");
 
-    let dishName = document.createElement("p");
-    dishName.textContent = dish.name;
-    dishName.className = "dish-name";
+    const priceElem = document.createElement("p");
+    priceElem.textContent = `${item.price}₽`;
+    priceElem.classList.add("price");
 
-    let dishPrice = document.createElement("p");
-    dishPrice.textContent = dish.price + "₽";
-    dishPrice.className = "price";
+    const weightElem = document.createElement("p");
+    weightElem.textContent = item.weight;
+    weightElem.classList.add("dish-weight");
 
-    let dishMass = document.createElement("p");
-    dishMass.textContent = dish.count;
-    dishMass.className = "dish-mass";
-
-    let addButton = document.createElement("button");
-    addButton.className = "btn";
+    const addButton = document.createElement("button");
+    addButton.classList.add("btn");
     addButton.textContent = "Добавить";
+    addButton.addEventListener("click", addItemToOrder);
 
-    addButton.addEventListener("click", addDishToForm);
+    const section = document.querySelector(`.${item.category} .menu-item-container`);
+    section.append(itemCard);
+    itemCard.append(imgDiv, nameElem, priceElem, weightElem, addButton);
+    imgDiv.append(img);
 
-
-    let section = document.body.children[1].querySelector("." + dish.category);
-    let container = section.querySelector(".menu-item-container");
-    container.append(dishCard);
-    dishCard.append(dishImgDiv);
-    dishImgDiv.append(dishImg);
-    dishCard.append(dishName);
-    dishCard.append(dishPrice);
-    dishCard.append(dishMass);
-    dishCard.append(addButton);
-
-    console.log(dishCard.getAttribute("data-dish"));
-
-}
-
+    console.log(itemCard.getAttribute("data-dish"));
+});
