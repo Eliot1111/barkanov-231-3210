@@ -1,0 +1,439 @@
+html, body{
+    background-color: antiquewhite;
+    margin: 0px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    font-family: Helvetica;
+}
+
+main{
+    margin-bottom: 30px;
+}
+
+/* css for navbar */
+
+header {
+    background-color:rgb(237, 224, 209);
+    padding: 0px 0px;
+    margin: 0px 0px;
+}
+
+.navbar{
+    display: flex;
+    flex-flow: row wrap;
+}
+
+#flex_box{
+    display: inline-flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    align-items: center;
+    margin-left: 10px;
+}
+
+.box_item{
+    font-size: 150%;
+}
+
+#company-name{
+    display: inline;
+    font-size: 190%;
+    margin-left: 50px;
+    transition: all 0.15s;
+    user-select: none;
+}
+
+#company-name:hover{
+    color: white;
+    text-shadow: 0px 0px 10px darksalmon,
+    0px 0px 20px darksalmon,
+    0px 0px 40px darksalmon,
+    0px 0px 80px darksalmon;
+}
+
+
+.btn{
+    padding: 35px 60px 29px 60px;
+    color:black;
+    text-decoration: none;
+    transition: all 0.25s;
+}
+
+#active-btn{
+    color:white;
+    background-color: darksalmon;
+}
+
+.btn:hover{
+    color:white;
+    background-color: darksalmon;
+}
+
+/* css for menu cards */
+
+
+
+.menu-item-container{
+    margin: auto;
+    max-width: 980px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-items: center;
+    column-gap: 10px;
+    
+}
+
+.menu-item{
+    display: flex;
+    margin: 0 8px;
+    padding: 20px 0;
+    flex-flow: column wrap;
+    width: 300px;
+    height: 400px;
+    justify-content: space-between;
+    align-content: center;
+    border: 2px solid transparent;
+    border-radius: 35px;
+    background-color: antiquewhite;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    transition: all 0.25s;
+}
+
+.menu-item:hover{
+    border: 2px solid darksalmon;
+    height: 420px;
+    width: 340px;
+    margin-left: -20px;
+    margin-right: -20px;
+    margin-bottom: -20px;
+    
+}
+
+
+.food-image > img{
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 35px;
+    margin-bottom: 10px;
+}
+
+.food-price{
+    font-size: 100%;
+    margin: 0;
+}
+
+.food-name{
+    flex: 1;
+    font-size: 100%;
+    margin: 0;
+    margin-bottom: 10px;
+    max-width: 250px;
+}
+
+.food-mass{
+    font-size: 80%;
+    margin: 0;
+    color: dimgray;
+}
+
+.add-to-cart-btn{
+    font-size: 100%;
+    text-align: center;
+    margin-top: 10px;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 0;
+    background-color:rgb(237, 224, 209);
+    text-decoration: none;
+    transition: all 0.25s;
+    
+}
+
+.add-to-cart-btn:hover{
+    color:white;
+    background-color: darksalmon;
+}
+
+.menu-category{
+    font-size: 180%;
+    margin: 30px 0 30px 15%;
+    
+}
+
+
+/* css for the order form */
+/* order data */
+
+
+#make-order-grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 680px;
+    margin: auto;
+    justify-items: center;
+}
+
+#make-order-fieldset{
+    margin-top: 50px;
+    border: none;
+}
+
+#make-order-legend{
+    font-size: 180%;
+    text-align: center;
+    font-weight: bold;
+}
+
+.make-order-h3{
+    font-weight: 100;
+}
+
+.dropdown-menu{
+    display: flex;
+    flex-direction: column;
+    row-gap: 5px;
+    margin: 20px 0;
+    font-size: 107%;
+}
+
+.dropdown-menu-class{
+    width: 290px;
+    height: 35px;
+    border-color: transparent;
+    border-radius: 10px;
+    background-color: rgb(237, 224, 209);
+    transition: color 0.25s, background-color 0.25s;
+}
+
+.dropdown-menu-class:focus{
+    outline: none;
+}
+
+.dropdown-menu-class:hover{
+    color: white;
+    background-color: darksalmon;
+}
+
+.dropdown-menu label {
+    pointer-events: none;
+}
+
+#comments{
+    display: flex;
+    flex-direction: column;
+    row-gap: 5px;
+    margin: 20px 0;
+    font-size: 107%;
+}
+
+#comments-textarea{
+    min-width: 280px;
+    max-width: 280px;
+    height: 110px;
+    border-color: transparent;
+    border-radius: 10px;
+    background-color: rgb(237, 224, 209);
+    padding: 0 5px;
+
+}
+
+#comments-textarea:focus{
+    outline: none;
+    border: 1px solid darksalmon;
+}
+
+label{
+    max-width: 290px;
+}
+
+
+/* user data */
+
+
+.data-input{
+    display: flex;
+    flex-direction: column;
+    row-gap: 5px;
+    margin: 20px 0;
+    font-size: 107%;
+}
+
+.input-field{
+    padding: 0 5px;
+    width: 280px;
+    height: 35px;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    background-color: rgb(237, 224, 209);
+}
+
+.input-field:focus{
+    outline: none;
+    border-color: darksalmon;
+}
+
+.input-note{
+    margin: 0;
+    font-size: 75%;
+    font-style: italic;
+}
+
+#delivery-time{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#delivery-time-main-label{
+    margin: 0;
+}
+
+.form-btn{
+    width: 143px;
+    background-color: rgb(237, 224, 209);
+    padding: 10px 0;
+    border: none;
+    border-radius: 10px;
+    transition: color 0.25s, background-color 0.25s;
+}
+
+.form-btn:hover{
+    color: white;
+    background-color: darksalmon;
+}
+
+
+
+.hidden{
+    visibility: hidden;
+}
+
+.selected-food{
+    font-weight: bold;
+}
+
+.selected-food-text{
+    margin-bottom: 10px;
+    max-width: 290px;
+}
+
+.selected{
+    border: 2px solid darksalmon;
+    height: 420px;
+    width: 340px;
+    margin-left: -20px;
+    margin-right: -20px;
+    margin-bottom: -20px;
+}
+
+
+/* css for footer */
+
+#footer_id{
+    background-color:rgb(237, 224, 209);
+    padding:    25px 0px;
+    
+    margin-top: auto;
+}
+
+#footer_p{
+    font-size: 120%;
+    margin: 0px 40px;
+}
+
+#footer_p a{
+    color:black;
+    text-decoration: none;
+}
+
+
+/* media for screens <1200px */
+
+@media only screen and (max-width: 1200px){
+
+.navbar{
+    flex-direction: column;
+    gap: 30px;
+    margin-bottom: 32px;
+    
+}
+
+.btn{
+    padding: 35px 60px 32px 60px;
+}
+
+#company-name{
+    margin: 30px auto ;
+}
+
+#flex_box{
+    margin: 0;
+    justify-content: space-between;
+}
+}
+
+/* media for screens <1000px */
+
+@media only screen and (max-width: 1000px){
+
+#flex_box{
+    flex-direction: column;
+    align-items: normal;
+}
+
+.btn{
+    display: block;
+    text-align: center;
+}
+
+.menu-category{
+    text-align: center;
+    margin: 30px 0;
+}
+
+.menu-item-container{
+    margin: auto;
+    max-width: 648px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    justify-items: center;
+    row-gap: 10px;
+}
+
+
+}
+
+@media only screen and (max-width: 700px){
+
+    #flex_box{
+        flex-direction: column;
+        align-items: normal;
+    }
+    
+    .menu-category{
+        text-align: center;
+        margin: 30px 0;
+    }
+    
+    .menu-item-container{
+        margin: auto;
+        max-width: 980px;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+        justify-items: center;
+        row-gap: 10px;
+        
+    }
+    
+    #make-order-grid{
+        width: 340px;
+        grid-template-columns: 1fr;
+        gap: 50px;
+    }
+    
+    }
