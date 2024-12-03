@@ -1,11 +1,11 @@
-// Объект для хранения текущего заказа
+
 const order = {
     soup: null,
     main_course: null,
     beverages: null,
 };
 
-// Функция обновления выбранного блюда
+
 function updateOrder(keyword) {
     const dish = dishes.find(d => d.keyword === keyword);
     const dishElements = document.querySelectorAll(".menu-item");
@@ -21,7 +21,6 @@ function updateOrder(keyword) {
     })
     if (!dish) return;
 
-    // Обновляем заказ для соответствующей категории
     const categoryMap = {
         soup: "selected-soup",
         main_course: "selected-dish",
@@ -42,7 +41,7 @@ function updateOrder(keyword) {
 
     order[dish.category] = dish;
 
-    // Обновляем отображение блюда
+
     const selectedElement = document.getElementById(categoryMap[dish.category]);
     const textElement = document.getElementById(textMap[dish.category]);
     const keywordInput = document.getElementById(inputMap[dish.category]);
@@ -57,17 +56,17 @@ function updateOrder(keyword) {
         keywordInput.value = dish.keyword;
     }
 
-    // Обновляем состояние "Ничего не выбрано", если есть блюда
+
     document.getElementById("none-selected").style.display = Object.values(order).some(o => o) ? "none" : "block";
 
-    // Обновляем общую стоимость
+
     updateTotalPrice();
 }
 
-// Функция подсчета итоговой стоимости
+
 function updateTotalPrice() {
     const totalPrice = Object.values(order)
-        .filter(Boolean) // Оставляем только выбранные блюда
+        .filter(Boolean)
         .reduce((sum, dish) => sum + dish.price, 0);
 
     const priceElement = document.getElementById("final-price");
@@ -90,7 +89,7 @@ function updateTotalPrice() {
 
 
 document.addEventListener("DOMContentLoaded", () => {
-    // Обработчик кликов по кнопкам "Добавить"
+
     document.body.addEventListener("click", event => {
         if (event.target.classList.contains("add-to-order-btn")) {
             const keyword = event.target.getAttribute("data-keyword");

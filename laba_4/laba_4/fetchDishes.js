@@ -73,7 +73,7 @@ const dishes = [
     },
 ];
 
-// Сортировка
+
 dishes.sort((a, b) => a.name.localeCompare(b.name));
 
 function createDishCard(dish) {
