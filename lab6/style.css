@@ -1,0 +1,406 @@
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Roboto', sans-serif;
+}
+
+#title {
+    font-size: 35px;
+    font-weight: 700;
+}
+
+header, main {
+    padding: 15px;
+    padding-left: 40px;
+}
+
+main {
+    flex: 1;
+}
+
+.header-menu {
+    display: flex;
+    gap: 30px;
+    margin-top: 25px;
+    padding: 0;
+}
+
+.header-list {
+    list-style-type: none;
+    color: #000;
+    font-size: 22px;
+}
+
+#active-button {
+    color: lightblue;
+}
+
+.combos { 
+    margin-top: 20px;
+}
+
+#combo-main-title {
+    text-align: center;
+}
+
+.combo-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 30px 10px;
+}
+
+.combo-items-container {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.combo-item-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.combo-item-text > p {
+    font-weight: 600;
+}
+
+.combo-img {
+    max-width: 80px;
+}
+
+.combo-img:hover {
+    transform: translateY(-10px) scale(1.2);
+    transition: all .4s;
+}
+
+
+#combo-desert-main-text{
+    margin-bottom: 0;
+}
+
+#combo-desert-text { 
+    margin-top: 0;
+    font-size: small;
+}
+
+.menu-item-container {
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 10px;
+    row-gap: 15px;
+    justify-items: center;
+}
+
+.menu-item-title {
+    margin-bottom: 20px
+}
+
+.menu-item-category {
+    display: flex;
+    gap: 20px;
+    max-height: 40px;
+    margin: 20px 0px;
+}
+
+.item-category-title {
+    font-size: large;
+    margin: 0;
+    color: #58924e;
+    padding: 10px 0px;
+}
+
+.item-category {
+    font-size: large;
+    color: #58924e;
+    background-color: #fff;
+    border: none;
+    max-height: 40px;
+    padding: 10px;
+}
+
+.item-category.active {
+    background-color: #58924e;
+    border-radius: 25px;
+    color: #000;
+}
+
+.menu-item {
+    display: flex;
+    flex-flow: column wrap;
+    max-width: 300px;
+    max-height: 450px;
+    border: 2px solid transparent;
+    border-radius: 35px;
+    padding: 20px 30px;
+    align-content: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+}
+
+.menu-item:hover {
+    border: 2px solid lightblue;
+    transition: all .3s ease-in;
+}
+
+.menu-item:hover button {
+    transition: all .1s ease-in;
+    background-color: lightblue;
+}
+
+.dish-img {
+    object-fit: cover;
+    max-width: 300px;
+    border-radius: 35px;
+}
+
+.dish-price {
+    font-size: 100%;
+    margin: 10px 0px 3px 0px;
+    font-weight: bold
+}
+
+.dish-price::after {
+    content: '\20BD';
+}
+
+.dish-name {
+    margin: 0px;
+    font-weight: bold;
+    flex: 1;
+}
+
+.dish-mass {
+    margin: 8px 0 0 0;
+    color: gray;
+}
+
+.btn {
+    font-size: 100%;
+    font-weight: bold;
+    padding: 10px 30px;
+    border: none;
+    border-radius: 10px;
+    margin-top: 10px;
+    background-color: #f1eee9;
+}
+
+button {
+    cursor: pointer;
+}
+
+a {
+    color: #000;
+    text-decoration: none;
+}
+
+a:hover {
+    color: lightblue;
+    transition: all .3s ease-in-out;
+}
+
+a:active {
+    color: lightblue;
+}
+
+.selected { 
+    border: 2px solid lightblue;
+}
+
+.form-section-title {
+    text-align: center;
+}
+
+.form-section-item {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 10px;
+    justify-items: center;
+}
+
+.form-title-text {
+    font-size: 1.6em;
+}
+
+.user-order-container, .user-info-container {
+    min-width: 75%;
+}
+
+.nothing {
+    font-weight: bold;
+    font-size: 1.5em;
+    margin-top: 10px;
+}
+
+.choose { 
+    display: none;
+}
+
+#total-sum-text::after {
+    content: '\20BD';
+}
+
+.user-order-container label {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.order-p {
+    margin-top: 8px;
+    font-size: 1.2em;
+}
+
+label, select, textarea {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 1.15em;
+}
+
+fieldset {
+    border-style: none;
+    padding: 0;
+}
+
+legend {
+    font-size: 1.6em;
+    margin-bottom: 5px;
+}
+
+input, select, textarea {
+    width: 80%;
+    min-height: 33px;
+}
+
+select {
+    min-height: 41px;
+}
+
+textarea {
+    min-height: 90px;
+}
+
+#faster, #time, #discount {
+    width: 13px;
+    min-height: 13px;
+}
+
+.form-item {
+    max-width: 80%;
+    margin-bottom: 15px;
+}
+
+.label-inline {
+    display: inline-block;
+}
+
+.delivery-text, .delivery-time {
+    margin-top: 0;
+}
+
+.address-bottom, .time-bottom {
+    margin-bottom: 3px;
+}
+
+#notification {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 20px;
+    border: 2px solid #000;
+    border-radius: 10px;
+    z-index: 1000;
+    display: none; /* Скрыто по умолчанию */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#notification.show {
+    display: block;
+}
+
+#notification-ok {
+    padding: 10px;
+    margin-top: 10px;
+    background-color: #32CD32;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#notification-ok:hover {
+    background-color: #28a745;
+    color: black;
+}
+
+footer {
+    background-color: #000;
+    margin-top: 20px;
+    padding: 10px;
+    padding-left: 40px;
+    font-size: 15px;
+    height: auto;
+}
+
+footer a {
+    color: #fff;
+}
+
+.form-buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 10px;
+    max-width: 81%;
+}
+
+form button {
+    background-color: #fff;
+    border: 1px solid #000;
+    height: 30px;
+}
+
+@media only all and (max-width: 1200px) {
+    .header-menu {
+        justify-content: space-between;
+    }
+
+    .menu-item-container {
+        grid-template-columns: 1fr 1fr;
+        row-gap: 15px;
+    }
+
+}
+
+@media only all and (max-width: 800px) {
+    #title {
+        text-align: center;
+    }
+
+    .header-menu {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .menu-item-title {
+        text-align: center;
+    }
+
+    .menu-item-container {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+        row-gap: 15px;
+    }
+
+    .header-list {
+        font-size: 26px;
+    }
+
+    .form-section-item {
+        grid-template-columns: 1fr;
+        row-gap: 10px;
+    }
+}
