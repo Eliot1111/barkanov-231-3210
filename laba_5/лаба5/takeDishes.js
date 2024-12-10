@@ -15,10 +15,10 @@ function updateOrder(keyword) {
             let dishCategoryItems = dishCategory.querySelectorAll(".menu-item");
             dishCategoryItems.forEach(dishCategory => {
                 dishCategory.classList.remove("selected");
-            })
+            });
             dish.classList.add("selected");
         }
-    })
+    });
     if (!dish) return;
 
     // Обновляем заказ для соответствующей категории
