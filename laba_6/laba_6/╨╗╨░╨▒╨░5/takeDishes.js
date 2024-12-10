@@ -1,4 +1,4 @@
-// Объект для хранения текущего заказа
+
 const order = {
     soup: null,
     main_course: null,
