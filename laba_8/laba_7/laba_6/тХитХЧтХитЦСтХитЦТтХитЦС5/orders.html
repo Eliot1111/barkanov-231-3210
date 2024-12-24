@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="orders.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <nav class="main-menu">
+                <h1>Food construct</h1>
+                <ul>
+                    <li><a href="index.html">О нас</a></li>
+                    <li><a href="#">Собрать ланч</a></li>
+                    <li><a href="finishOrder.html">Оформить заказ</a></li>
+                    <li><a href="#">Заказы</a></li>
+                    <li><a href="#footer_id">Контакты</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="soup">
+            <h2 class="menu-category-text">Выберите суп</h2>
+            <div class="filters" id="filter-soups">
+                <button class="filter-btn" data-kind="fish">Рыбный</button>
+                <button class="filter-btn" data-kind="meat">Мясной</button>
+                <button class="filter-btn" data-kind="veg">Вегетарианский</button>
+            </div>
+            <div class="menu-item-container" id="soup-container"></div>
+        </section>
+        <section class="main-course">
+            <h2 class="menu-category-text">Выберите главное блюдо</h2>
+            <div class="filters" id="filter-main-dishes">
+                <button class="filter-btn" data-kind="fish">Рыбное</button>
+                <button class="filter-btn" data-kind="meat">Мясное</button>
+                <button class="filter-btn" data-kind="veg">Вегетарианское</button>
+            </div>
+            <div class="menu-item-container" id="main-dish-container"></div>
+        </section>
+        <section class="salad">
+            <h2 class="menu-category-text">Выберите салат или стартер</h2>
+            <div class="filters" id="filter-salad">
+                <button class="filter-btn" data-kind="fish">Рыбный</button>
+                <button class="filter-btn" data-kind="meat">Мясной</button>
+                <button class="filter-btn" data-kind="veg">Вегетарианский</button>
+            </div>
+            <div class="menu-item-container" id="salad-container"></div>
+        </section>
+        <section class="drink">
+            <h2 class="menu-category-text">Выберите напиток</h2>
+            <div class="filters" id="filter-drinks">
+                <button class="filter-btn" data-kind="hot">Горячий</button>
+                <button class="filter-btn" data-kind="cold">Холодный</button>
+            </div>
+            <div class="menu-item-container" id="drink-container"></div>
+        </section>
+        <section class="dessert">
+            <h2 class="menu-category-text">Выберите дессерт</h2>
+            <div class="filters" id="filter-dessert">
+                <button class="filter-btn" data-kind="small">Маленький</button>
+                <button class="filter-btn" data-kind="medium">Средний</button>
+                <button class="filter-btn" data-kind="large">Большой</button>
+            </div>
+            <div class="menu-item-container" id="dessert-container"></div>
+        </section>
+
+
+        <div id="combo-alert">
+            <p id="combo-alert-text"></p>
+            <button id="combo-alert-ok">Окей👌</button>
+        </div>
+
+
+    </main>
+
+
+
+    <section class="order-place-section">
+        <div class="order-place">
+            <p class="order-place-title">Итого: 0₽</p>
+            <a class="order-place-btn-a" href="finishOrder.html"><button class="order-place-btn">Перейти к оформлению</button></a>
+        </div>
+    </section>
+
+
+    <footer id="contacts">
+        <p>Позвонить нам +7-000-000-00-00</p>
+    </footer>
+
+    <script type="module" src="fetchDishes.js"></script>
+    <script type="module" src="localStorage.js"></script>
+    <script src="takeDishes.js"></script>
+    <script src="comboCheck.js"></script>
+
+</body>
+
+</html>

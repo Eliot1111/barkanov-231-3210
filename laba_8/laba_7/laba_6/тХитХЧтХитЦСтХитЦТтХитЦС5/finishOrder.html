@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="orders.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <nav class="main-menu">
+                <h1>Food construct</h1>
+                <ul>
+                    <li><a href="index.html">О нас</a></li>
+                    <li><a href="orders.html">Собрать ланч</a></li>
+                    <li><a href="#">Оформить заказ</a></li>
+                    <li><a href="#">Заказы</a></li>
+                    <li><a href="#footer_id">Контакты</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+
+
+
+    <main>
+        <h2 id="combo-h2">Состав заказа</h2>
+        <div id="nothing-chosen-div">
+            <p id="nothing-chosen">Ничего не выбрано. Чтобы добавить блюда в заказ, перейдите на страницу <a href="orders.html" id="orders-a">Собрать ланч.</a></p>
+        </div>
+        <div class="menu-item-container" id="order-container"></div>
+
+
+
+        <form action="https://httpbin.org/post" method="post" id="main-form">
+            <fieldset id="make-order-fieldset">
+                <legend id="make-order-legend">Сделать заказ</legend>
+                <div id="make-order-grid">
+                    <div id="customer-order">
+                        <h3 class="make-order-h3">Ваш заказ</h3>
+                        <div id="none-selected">Ничего не выбрано</div>
+                        <div class="choose">
+                            <div class="hidden selected-food" id="selected-soup">Суп</div>
+                            <div class="hidden selected-food-text" id="soup-choose">Суп не выбран</div>
+                            <input type="hidden" id="selected-soup-keyword" name="soup" value="" required>
+                        </div>
+                        <div class="choose">
+                            <div class="hidden selected-food" id="selected-dish">Главное блюдо</div>
+                            <div class="hidden selected-food-text" id="main-course-choose">Блюдо не выбрано</div>
+                            <input type="hidden" id="selected-dish-keyword" name="main-dish" value="" required>
+                        </div>
+                        <div class="choose">
+                            <div class="hidden selected-food" id="selected-salad">Салат или стартер</div>
+                            <div class="hidden selected-food-text" id="salad-choose">Салат или стартер не выбран</div>
+                            <input type="hidden" id="selected-salad-keyword" name="salad" value="" required>
+                        </div>
+                        <div class="choose">
+                            <div class="hidden selected-food" id="selected-drink">Напиток</div>
+                            <div class="hidden selected-food-text" id="drink-choose">Напиток не выбран</div>
+                            <input type="hidden" id="selected-drink-keyword" name="drink" value="" required>
+                        </div>
+                        <div class="choose">
+                            <div class="hidden selected-food" id="selected-dessert">Десерт</div>
+                            <div class="hidden selected-food-text" id="dessert-choose">Десерт не выбран</div>
+                            <input type="hidden" id="selected-dessert-keyword" name="dessert" value="" required>
+                        </div>
+                        <div class="hidden selected-food" id="final-price">Стоимость заказа</div>
+                        <div class="hidden" id="final-price-value"></div>
+                        <div id="comments">
+                            <label for="comments-textarea">Комментарии к заказу</label>
+                            <textarea id="comments-textarea" name="comments"></textarea>
+                        </div>
+                    </div>
+                    <div id="customer-data">
+                        <h3 class="make-order-h3">Ваши данные</h3>
+                        <div class="data-input">
+                            <label for="input-name">Имя</label>
+                            <input type="text" class="input-field" id="input-name" name="user-name" required>
+                        </div>
+                        <div class="data-input">
+                            <label for="input-email">Email</label>
+                            <input type="email" class="input-field" id="input-email" name="user-email" required>
+                        </div>
+                        <input type="checkbox" id="newsletter" name="newsletter" value="yes" checked>
+                        <label for="newsletter">Получать информацию <br>о скидках и акциах</label>
+                        <div class="data-input">
+                            <label for="input-phone">Номер телефона</label>
+                            <input type="text" class="input-field" id="input-phone" name="user-phone" required>
+                        </div>
+                        <div class="data-input">
+                            <label for="input-address">Адрес доставки</label>
+                            <input type="text" class="input-field" id="input-address" name="user-address" required>
+                            <p class="input-note">Доставка осуществляется только по Москве</p>
+                        </div>
+                        <div id="delivery-time">
+                            <p id="delivery-time-main-label">Время доставки:</p>
+                            <fieldset>
+                                <div class="radio-div">
+                                    <input type="radio" id="radio-time-now" name="delivery-when" value="now" required>
+                                    <label for="radio-time-now">Как можно скорее</label>
+                                </div>
+                                <div class="radio-div">
+                                    <input type="radio" id="radio-time-later" name="delivery-when" value="later" required>
+                                    <label for="radio-time-later">К указанному времени</label>
+                                </div>
+                            </fieldset>
+                        </div>
+                        <div class="data-input" id="data-input-id">
+                            <label for="input-time">Укажите время доставки</label>
+                            <input type="time" class="input-field" id="input-time" name="delivery-exact-time"
+                                min="07:00" max="23:00" step="300" required>
+                            <p class="input-note">Доступное время с 7:00 до 23:00</p>
+                        </div>
+                        <div class="buttons">
+                            <button class="form-btn" type="reset" id="reset-btn">Сбросить</button>
+                            <input class="form-btn" type="submit" value="Отправить">
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+    </main>
+
+
+
+
+    <footer id="contacts">
+        <p>Позвонить нам +7-000-000-00-00</p>
+    </footer>
+
+    <!-- <script src="takeDishes.js"></script> -->
+    <script type="module" src="formLogic.js"></script> 
+    <script type="module" src="selectedDishes.js"></script>
+    <script type="module" src="deliveryTime.js"></script> 
+    <script type="module" src="submit.js"></script>
+
+</body>
+
+</html>
